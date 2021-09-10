@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> v;
+void generate_subsequence(int i, int arr[],int &sum, int n)
+{
+    if(i >= n)
+    {
+        if(sum%3 == 0)
+            cout<<sum<<" "<<endl;
+       
+        return;
+    }
+    sum += arr[i];
+    generate_subsequence(i+1, arr, sum, n);
+    sum -= arr[i];
+    generate_subsequence(i+1, arr, sum, n);
+}
+int main()
+{
+    int arr[]= {1,2,3};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int sum = 0;
+    generate_subsequence(0, arr, sum, n);
+}
