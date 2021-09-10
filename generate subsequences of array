@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> v;
+void generate_subsequence(int i, int arr[])
+{
+    if(i >= 3)
+    {
+        for(auto it: v)
+            cout<<it<<" ";
+        cout<<endl;
+        return;
+    }
+    v.push_back(arr[i]);
+    generate_subsequence(i+1, arr);
+    v.pop_back();
+    generate_subsequence(i+1, arr);
+}
+int main()
+{
+    int arr[]= {1,2,3};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    generate_subsequence(0, arr);
+}
